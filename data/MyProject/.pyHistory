@@ -1,0 +1,133 @@
+﻿print "hi"
+print("hi")
+aprx = arcpy.mp.ArcGISProject("CURRENT")
+m = aprx.listMaps("Map")[0]
+layout = aprx.listLayouts()[0]
+layout.exportToPDF("C:\\test.pdf")
+project = arcpy.mp.ArcGISProject("CURRENT")
+gisMap = project.listMaps()[0]
+gisMap.addDataFromPath("C:\Projects\Applications\GIS\Maps\data\data.csv")
+table = gisMap.addDataFromPath("C:\Projects\Applications\GIS\Maps\data\data.csv")
+table
+arcpy.GeocodeLocationsFromTable_geocoding('data.csv', 'https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/ArcGIS World Geocoding Service', "field 2", "out")
+arcpy.GeocodeLocationsFromTable_geocoding(table, 'https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/ArcGIS World Geocoding Service', "field 2", "out")
+arcpy.geocoding.GeocodeLocationsFromTable(table, 'https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/ArcGIS World Geocoding Service', "Field1 City", "out")
+table
+arcpy.geocoding.GeocodeLocationsFromTable('data.csv', 'https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/ArcGIS World Geocoding Service', "Field1 City", "out")
+arcpy.geocoding.GeocodeLocationsFromTable(table, 'https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/ArcGIS World Geocoding Service', "Field1 City VISIBLE NONE;", "out")
+table1 = gisMap.listTables()[0]
+arcpy.geocoding.GeocodeLocationsFromTable(table1, 'https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/ArcGIS World Geocoding Service', "Field1 City VISIBLE NONE;", "out")
+table1
+arcpy.geocoding.GeocodeAddresses(table, 'https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/ArcGIS World Geocoding Service', "Field1 City VISIBLE NONE;", fea)
+fea = ""
+arcpy.geocoding.GeocodeAddresses(table, 'https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/ArcGIS World Geocoding Service', "Field1 City VISIBLE NONE;", fea)
+arcpy.geocoding.GeocodeAddresses(table, 'https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/ArcGIS World Geocoding Service', "Field1 City VISIBLE NONE;", "out")
+arcpy.geocoding.GeocodeAddresses(table, 'https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/ArcGIS World Geocoding Service', "City VISIBLE NONE;", "out")
+arcpy.geocoding.GeocodeAddresses(table, 'https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/ArcGIS World Geocoding Service', "City", "out")
+arcpy.geocoding.GeocodeAddresses(table, 'https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/ArcGIS World Geocoding Service', "City", "out", 'STATIC', 'US', 'ADDRESS_LOCATION', 'City')
+arcpy.geocoding.GeocodeAddresses(table, 'https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/ArcGIS World Geocoding Service', "City VISIBLE None", "out", 'STATIC', 'US', 'ADDRESS_LOCATION', 'City')
+arcpy.geocoding.GeocodeAddresses(table, 'https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/ArcGIS World Geocoding Service', "SingleLine Address", "out", 'STATIC', 'US', 'ADDRESS_LOCATION', 'City')
+arcpy.geocoding.GeocodeAddresses(table, 'https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/ArcGIS World Geocoding Service', "Address", "out", 'STATIC', 'US', 'ADDRESS_LOCATION', 'City')
+arcpy.geocoding.GeocodeAddresses(table, 'https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/ArcGIS World Geocoding Service', "SingleLine Field1", "out", 'STATIC', 'US', 'ADDRESS_LOCATION', 'City')
+result = arcpy.geocoding.GeocodeAddresses(table, 'https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/ArcGIS World Geocoding Service', "SingleLine Field1", "out", 'STATIC', 'US', 'ADDRESS_LOCATION', 'City')
+result
+arcpy.Buffer_analysis('out', "buffer", 5, 'FULL', 'ROUND', 'NONE')
+arcpy.Buffer_analysis('out', "buffer", 2, 'FULL', 'ROUND', 'NONE')
+arcpy.Buffer_analysis('out', "buffer", "2 miles", 'FULL', 'ROUND', 'NONE')
+arcpy.Buffer_analysis('out', "buffer", "50 miles", 'FULL', 'ROUND', 'NONE')
+arcpy.Buffer_analysis('out', "buffer", "75 miles", 'FULL', 'ROUND', 'NONE')
+arcpy.ApplySymbologyFromLayer_management('out', 'same_Geocoded1_Buffer_Buffer')
+arcpy.ApplySymbologyFromLayer_management('buffer', 'same_Geocoded1_Buffer_Buffer')
+arcpy.Buffer_analysis('out', "buffer", "75 miles", 'FULL', 'ROUND', 'NONE')
+arcpy.ApplySymbologyFromLayer_management('buffer', 'same_Geocoded1_Buffer_Buffer')
+arcpy.Buffer_analysis('out', "buffer", "75 miles", 'FULL', 'ROUND', 'NONE')
+arcpy.ApplySymbologyFromLayer_management('buffer', 'same_Geocoded1_Buffer_Buffer')
+arcpy.Buffer_analysis('out', "buffer", "75 miles", 'FULL', 'ROUND', 'NONE')
+arcpy.Buffer_analysis('out', "buffer1", "75 miles", 'FULL', 'ROUND', 'NONE')
+arcpy.Buffer_analysis('out', "buffer", "75 miles", 'FULL', 'ROUND', 'NONE')
+arcpy.Buffer_analysis('out', 'buffer', "75 miles", 'FULL', 'ROUND', 'NONE')
+arcpy.Buffer_analysis('out', 'asdfbuffer', "75 miles", 'FULL', 'ROUND', 'NONE')
+arcpy.Buffer_analysis('out', 'buffer', "75 miles", 'FULL', 'ROUND', 'NONE')
+arcpy.ApplySymbologyFromLayer_management('buffer', 'same_Geocoded1_Buffer_Buffer')
+arcpy.Buffer_analysis('out', 'buffer', "75 miles", 'FULL', 'ROUND', 'NONE')
+project = arcpy.mp.ArcGISProject("CURRENT")
+m = project.listMaps()[0]
+b = m.listLayers("buffer")
+l = m.listLayers("same_Geocoded1_Buffer_Buffer")
+arcpy.ApplySymbologyFromLayer_management(b, l)
+b
+l
+arcpy.ApplySymbologyFromLayer_management('buffer', 'same_Geocoded1_Buffer_Buffer')
+arcpy.RefreshMapAreaPackage_agolservices()
+arcpy.ApplySymbologyFromLayer_management('buffer', 'same_Geocoded1_Buffer_Buffer')
+arcpy.ApplySymbologyFromLayer_management('buffer', 'same_Geocoded1_Buffer_Buffer', 'VALUE_FIELD', 'MAINTAIN')
+arcpy.ApplySymbologyFromLayer_management('buffer', 'same_Geocoded1_Buffer_Buffer', 'VALUE_FIELD Field2 Field2', 'MAINTAIN')
+arcpy.ApplySymbologyFromLayer_management('buffer', 'same_Geocoded1_Buffer_Buffer', [['VALUE_FIELD', "Field2", "Field2"]], 'MAINTAIN')
+arcpy.ApplySymbologyFromLayer_management('buffer', 'sym', [['VALUE_FIELD', "#", "Field2"]], 'MAINTAIN')
+arcpy.ApplySymbologyFromLayer_management('buffer', 'sym', [['VALUE_FIELD', "Field2", "Field2"]], 'MAINTAIN')
+arcpy.ApplySymbologyFromLayer_management('buffer', 'sym', [['VALUE_FIELD', "Field2", "Field2"]])
+symFields = [['VALUE_FIELD', "Field2", "Field2"]]
+arcpy.ApplySymbologyFromLayer_management('buffer', 'sym', symFields)
+arcpy.ApplySymbologyFromLayer_management('buffer', 'sym', [['VALUE_FIELD', "Field2", "Field2"]])
+b
+arcpy.ApplySymbologyFromLayer_management(b, 'sym', [['VALUE_FIELD', "Field2", "Field2"]])
+b = m.listLayers("buffer")[0]
+arcpy.ApplySymbologyFromLayer_management(b, 'sym', [['VALUE_FIELD', "Field2", "Field2"]])
+l = m.listLayers("sym")[0]
+arcpy.ApplySymbologyFromLayer_management(b, l, [['VALUE_FIELD', "Field2", "Field2"]])
+arcpy.ApplySymbologyFromLayer_management(b, l, [["VALUE_FIELD", "Field2", "Field2"]], 'MAINTAIN')
+arcpy.ApplySymbologyFromLayer_management(b, l, [["VALUE_FIELD", "#", "Field2"]], 'MAINTAIN')
+arcpy.ApplySymbologyFromLayer_management(b, l, [["VALUE_FIELD", "OBJECTID", "OBJECTID"]], 'MAINTAIN')
+arcpy.ApplySymbologyFromLayer_management(b, l, [["VALUE_FIELD", "OBJECTID", "Field2"]], 'MAINTAIN')
+arcpy.ApplySymbologyFromLayer_management(b, l, [["VALUE_FIELD", "OBJECTID", "Field1"]], 'MAINTAIN')
+arcpy.ApplySymbologyFromLayer_management(b, l, [["VALUE_FIELD", "OBJECTID", "FIELD2"]], 'MAINTAIN')
+arcpy.ApplySymbologyFromLayer_management(b, "C:\Projects\Applications\GIS\Maps\data\sym.lrx", [["VALUE_FIELD", "Field2", "Field2"]], 'MAINTAIN')
+arcpy.ApplySymbologyFromLayer_management(b, r"C:\Projects\Applications\GIS\Maps\data\sym.lrx", [["VALUE_FIELD", "Field2", "Field2"]], 'MAINTAIN')
+arcpy.ApplySymbologyFromLayer_management(b, "C:\\Projects\\Applications\\GIS\\Maps\\data\\sym.lrx", [["VALUE_FIELD", "Field2", "Field2"]], 'MAINTAIN')
+arcpy.ApplySymbologyFromLayer_management(b, l, [["VALUE_FIELD", "Field2", "Field2"]], 'MAINTAIN')
+arcpy.ApplySymbologyFromLayer_management(b, l)
+arcpy.ApplySymbologyFromLayer_management('buffer', 'sym')
+arcpy.SelectLayerByAttribute_management('buffer', 'CLEAR_SELECTION')
+mxd = arcpy.mapping.MapDocument("current")
+mxd = arcpy.mp.ArcGISProject("current")
+mxd
+mapp = mxd.listMaps()[0]
+symL = mapp.listLayers("sym")[0]
+symL.symbology.updateRenderer('UniqueValueRenderer')
+arcpy.ApplySymbologyFromLayer_management('buffer', 'sym')
+arcpy.ApplySymbologyFromLayer_management("buffer", "sym", [["VALUE_FIELD", "USER_Field2", "USER_Field2"]], 'MAINTAIN')
+for i in range(10):     print(i)
+arcpy.ApplySymbologyFromLayer_management("buffer", "sym", [["VALUE_FIELD", "USER_Field2", "USER_November 6-10"]], 'MAINTAIN')
+arcpy.ApplySymbologyFromLayer_management("buffer", "sym", [["VALUE_FIELD", "USER_Field2", "USER_Field3"]], 'MAINTAIN')
+arcpy.ApplySymbologyFromLayer_management("buffer", "sym", [["VALUE_FIELD", "USER_Field2", "USER_Field2"]], 'MAINTAIN')
+cityDataLayerName = "cityData" cityBufferLayerName = "cityBuffer" symbolLayerTemplateName = "sym" geocodeUrl = 'https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/ArcGIS World Geocoding Service'   def import_data(csv_url):    table = gisMap.addDataFromPath(csv_url)    arcpy.GeocodeAddresses_geocoding(table, geocodeUrl, "SingleLine City", cityBufferLayerName, 'STATIC', 'US', 'ADDRESS_LOCATION', 'City')    arcpy.Buffer_analysis(cityDataLayerName, cityBufferLayerName, "75 miles", 'FULL', 'ROUND', 'NONE')   gisProject = arcpy.mp.ArcGISProject(r"C:\Projects\Applications\GIS\Maps\data\MyProject\MyProject.aprx") gisMap = gisProject.listMaps()[0] gisLayout = gisProject.listLayouts()[0]  # arcpy.ApplySymbologyFromLayer_management(cityBufferLayerName, symbolLayerTemplateName, [["VALUE_FIELD", "USER_Field2", "USER_Field2"]], 'MAINTAIN')  import_data(r"C:\Projects\Applications\GIS\Maps\data\csv\TMax10.csv") gisLayout.exportToPNG(r"C:\Projects\Applications\GIS\Maps\data\map.png")
+cityDataLayerName = "cityData" cityBufferLayerName = "cityBuffer" symbolLayerTemplateName = "sym" geocodeUrl = 'https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/ArcGIS World Geocoding Service'   def import_data(csv_url):    table = gisMap.addDataFromPath(csv_url)    arcpy.GeocodeAddresses_geocoding(table, geocodeUrl, "SingleLine City", cityBufferLayerName, 'STATIC', 'US', 'ADDRESS_LOCATION', 'City')    arcpy.Buffer_analysis(cityDataLayerName, cityBufferLayerName, "75 miles", 'FULL', 'ROUND', 'NONE')   gisProject = arcpy.mp.ArcGISProject(r"current") gisMap = gisProject.listMaps()[0] gisLayout = gisProject.listLayouts()[0]  # arcpy.ApplySymbologyFromLayer_management(cityBufferLayerName, symbolLayerTemplateName, [["VALUE_FIELD", "USER_Field2", "USER_Field2"]], 'MAINTAIN')  import_data(r"C:\Projects\Applications\GIS\Maps\data\csv\TMax10.csv") gisLayout.exportToPNG(r"C:\Projects\Applications\GIS\Maps\data\map.png")
+arcpy.GeocodeAddresses_geocoding(table, geocodeUrl, "SingleLine City", "out", 'STATIC', 'US', 'ADDRESS_LOCATION', 'City')
+table
+table = gisMap.addDataFromPath(r"C:\Projects\Applications\GIS\Maps\data\csv\TMax10.csv")
+arcpy.GeocodeAddresses_geocoding(table, geocodeUrl, "SingleLine City", "out", 'STATIC', 'US', 'ADDRESS_LOCATION', 'City')
+data = arcpy.GeocodeAddresses_geocoding(table, geocodeUrl, "SingleLine City", "out", 'STATIC', 'US', 'ADDRESS_LOCATION', 'City')
+data = arcpy.GeocodeAddresses_geocoding(table, 'https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/ArcGIS World Geocoding Service', "SingleLine City", "out", 'STATIC', 'US', 'ADDRESS_LOCATION', 'City')
+data = arcpy.GeocodeAddresses_geocoding(table, 'https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/ArcGIS World Geocoding Service', "SingleLine City VISIBLE NONE", "C:\Projects\Applications\GIS\Maps\data\MyProject\MyProject.gdb\out", 'STATIC', 'US', 'ADDRESS_LOCATION', 'City')
+data = arcpy.GeocodeAddresses_geocoding(table, 'https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/ArcGIS World Geocoding Service', "SingleLine City VISIBLE NONE", "out", 'STATIC', 'US', 'ADDRESS_LOCATION', 'City')
+data = arcpy.GeocodeAddresses_geocoding(table, 'https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/ArcGIS World Geocoding Service', "SingleLine City", "out", 'STATIC', 'US', 'ADDRESS_LOCATION', 'City')
+arcpy.GeocodeAddresses_geocoding(table, geocodeUrl, "SingleLine City", "out", 'STATIC', 'US', 'ADDRESS_LOCATION', 'City')
+import arcpy  cityDataLayerName = "cityData" cityBufferLayerName = "cityBuffer" symbolLayerTemplateName = "sym" geocodeUrl = 'https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/ArcGIS World Geocoding Service'   def import_data(csv_url):    table = gisMap.addDataFromPath(csv_url)    arcpy.GeocodeAddresses_geocoding(table,                                     'https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/ArcGIS World Geocoding Service',                                     "SingleLine City VISIBLE NONE", cityBufferLayerName, 'STATIC', 'US', 'ADDRESS_LOCATION', 'City')    # arcpy.GeocodeAddresses_geocoding(table, geocodeUrl, "SingleLine City", "out", 'STATIC', 'US', 'ADDRESS_LOCATION', 'City')    arcpy.Buffer_analysis(cityDataLayerName, cityBufferLayerName, "75 miles", 'FULL', 'ROUND', 'NONE')   gisProject = arcpy.mp.ArcGISProject(r"C:\Projects\Applications\GIS\Maps\data\MyProject\MyProject.aprx") gisMap = gisProject.listMaps()[0] gisLayout = gisProject.listLayouts()[0]  # arcpy.ApplySymbologyFromLayer_management(cityBufferLayerName, symbolLayerTemplateName, [["VALUE_FIELD", "USER_Field2", "USER_Field2"]], 'MAINTAIN')  import_data(r"C:\Projects\Applications\GIS\Maps\data\csv\TMax10.csv") gisLayout.exportToPNG(r"C:\Projects\Applications\GIS\Maps\data\map.png")
+import arcpy  cityDataLayerName = "cityData" cityBufferLayerName = "cityBuffer" symbolLayerTemplateName = "sym" geocodeUrl = 'https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/ArcGIS World Geocoding Service'   def import_data(csv_url):    table = gisMap.addDataFromPath(csv_url)    arcpy.GeocodeAddresses_geocoding(table,                                     'https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/ArcGIS World Geocoding Service',                                     "SingleLine City VISIBLE NONE", cityDataLayerName, 'STATIC', 'US', 'ADDRESS_LOCATION', 'City')    # arcpy.GeocodeAddresses_geocoding(table, geocodeUrl, "SingleLine City", "out", 'STATIC', 'US', 'ADDRESS_LOCATION', 'City')    arcpy.Buffer_analysis(cityDataLayerName, cityBufferLayerName, "75 miles", 'FULL', 'ROUND', 'NONE')   gisProject = arcpy.mp.ArcGISProject(r"C:\Projects\Applications\GIS\Maps\data\MyProject\MyProject.aprx") gisMap = gisProject.listMaps()[0] gisLayout = gisProject.listLayouts()[0]  # arcpy.ApplySymbologyFromLayer_management(cityBufferLayerName, symbolLayerTemplateName, [["VALUE_FIELD", "USER_Field2", "USER_Field2"]], 'MAINTAIN')  import_data(r"C:\Projects\Applications\GIS\Maps\data\csv\TMax10.csv") gisLayout.exportToPNG(r"C:\Projects\Applications\GIS\Maps\data\map.png")
+gisLayout.exportToPNG(r"C:\Projects\Applications\GIS\Maps\data\map.png")
+gisLayout = gisProject.listLayouts()[0]
+gisLayout.exportToPNG(r"C:\Projects\Applications\GIS\Maps\data\map.png")
+import arcpy  cityDataLayerName = "cityData" cityBufferLayerName = "cityBuffer" symbolLayerTemplateName = "sym" geocodeUrl = 'https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/ArcGIS World Geocoding Service'   def import_data(csv_url):    table = gisMap.addDataFromPath(csv_url)    arcpy.GeocodeAddresses_geocoding(table,                                     'https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/ArcGIS World Geocoding Service',                                     "SingleLine City VISIBLE NONE", cityDataLayerName, 'STATIC', 'US', 'ADDRESS_LOCATION', 'City')    # arcpy.GeocodeAddresses_geocoding(table, geocodeUrl, "SingleLine City", "out", 'STATIC', 'US', 'ADDRESS_LOCATION', 'City')    arcpy.Buffer_analysis(cityDataLayerName, cityBufferLayerName, "75 miles", 'FULL', 'ROUND', 'NONE')   gisProject = arcpy.mp.ArcGISProject("current") #gisProject = arcpy.mp.ArcGISProject(r"C:\Projects\Applications\GIS\Maps\data\MyProject\MyProject.aprx") gisMap = gisProject.listMaps()[0] gisLayout = gisProject.listLayouts()[0]  # arcpy.ApplySymbologyFromLayer_management(cityBufferLayerName, symbolLayerTemplateName, [["VALUE_FIELD", "USER_Field2", "USER_Field2"]], 'MAINTAIN')  import_data(r"C:\Projects\Applications\GIS\Maps\data\csv\TMax10.csv") gisLayout.exportToPNG(r"C:\Projects\Applications\GIS\Maps\data\map.png")
+fc = "sym"
+arcpy.Describe(fc)
+p = arcpy.Describe(fc)
+print p.path + "\\" + fc
+print(p.path + "\\" + fc)
+print(arcpy.Describe('sym'))
+desc = arcpy.Describe('sym')
+path = desc.path
+path
+p = arcpy.mp.ArcGISProject()
+p = arcpy.mp.ArcGISProject("current")
+m = p.listMaps()[0]
+m.listLayers()
